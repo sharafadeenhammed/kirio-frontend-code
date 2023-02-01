@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Led Blink </title>
+  
+</head>
+<body>
+  <main>
+    <div>
+      <div>
+        <h4>LED ONE CONTROLS</h4>
+         <button onclick="onLedOne()" >ON</button>
+         <button onclick="offLedOne()"  >OFF</button>
+      </div>
+      <br>
+      <div>
+        <h4>LED TWO CONTROLS</h4>
+        <button onclick="onLedTwo()" >ON</button>
+        <button onclick="offLedTwo()" >OFF</button>
+      </div>
+      <br>
+      <div>
+        <h4>LED THREE CONTROLS</h4>
+        <button onclick="onLedThree()" >ON</button>
+        <button onclick="offLedThree()">OFF</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    // turn on led one action
+    function onLedOne(){
+      console.log("turn on led one...");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "/onledone");
+      xhr.send();
+    }
+    // trun off led one action
+     function offLedOne(){
+      console.log("turn off led one...");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "/offledone");
+      xhr.send();
+    }
+    // turn on led two action
+    function onLedTwo(){
+      console.log("turn on led two...");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "/onledtwo");
+      xhr.send();
+    }
+    // trun off led teo action
+    function offLedTwo(){
+      console.log("turn off led two...");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "/offledtwo");
+      xhr.send();
+    }
+    // trun on led three action
+     function onLedThree(){
+      console.log("turn on led three...");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "/onledthree");
+      xhr.send();
+    }
+    // turn off led three action
+     function offLedThree(){
+      console.log("turn off led three...");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "/offedthree");
+      xhr.send();
+    }
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<style>
+  /* *{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:rgb(47, 44, 44)
+  }
+  .main-container{
+    min-height: 100vh;
+    width:100%;
+    padding: 30px 15px 15px 15px;
+    background-color: rgb(36, 105, 215);
+  }
+  .main-header{
+    text-align: center;
+    margin:auto;
+    margin-bottom: 50px;
+  }
+  .header-content{
+    background-color: black;
+    display: inline-block;
+    padding:10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(52, 51, 51, 0.7);
+    color:rgb(218, 208, 208);
+  }
+  .content-container{
+    display:flex;
+    flex-direction: column;
+  }
+  .content{
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 70px;
+    padding:20px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-basis: 20px;
+    position:relative
+  }
+  button{
+    cursor: pointer;
+  }
+  .on-btn, .off-btn{
+    padding:10px 20px;
+    display:flex;
+    align-items: center;
+    border-radius: 10px;
+    outline: none;
+    color:rgb(243, 236, 236);
+    background-color: rgb(9, 145, 34);
+    border: none;
+    transition: 0.3s;
+  }
+  .on-btn:hover{
+    background-color: rgb(12, 135, 35); ;
+  }
+  .off-btn:hover{
+    background-color: rgb(218, 29, 29); ;
+  }
+  .off-btn{
+    background-color: rgb(198, 8, 8);
+  }
+  .content-heading{
+    width:200px;
+    color:#fff;
+    position: absolute;
+    top:-25px;
+    left:calc(50%+50px);
+    text-decoration: underline;
+  } */
+</style>

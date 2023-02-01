@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motor | Controller</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      padding:0px;
+      margin:0px;
+    }
+    body{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .main-container{
+      min-height: 100vh;
+      width:100%;
+      padding: 30px 15px 15px 15px;
+      background-color: rgb(36, 105, 215);
+      color:rgb(245, 241, 241);
+      position: relative;
+    }
+    .main-header{
+      text-align: center;
+      margin:auto;
+    }
+    .header-content{
+      background-color: black;
+      padding:10px 20px;
+      border-radius: 5px;
+      box-shadow: 0px 1px 5px rgba(52, 51, 51, 0.7);
+      color:rgb(218, 208, 208);
+    }
+    .control-container{
+      user-select: none;
+      height:300px;
+      width:300px;
+      border-radius: 50%;
+      /* border:2px solid #000; */
+      /* background-color: black; */
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      position:absolute;
+      top:50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .control-box{
+      height:inherit;
+      width:inherit;
+      /* border: 10px solid #FFF; */
+      position:relative;
+    }
+    #up-btn{
+      position:absolute;
+      top: -80px;
+      height:55px;
+      width:70px;
+      left:50%;
+      display:flex;
+      background-color: rgb(21, 115, 197);
+      justify-content: center;
+      align-items: center;
+      transform: translateX(-50%);
+      border: 1px solid #ece5e5;
+      color: #e6dfdf;
+      padding:5px;
+      border-radius: 50% 50% 5px 5px;
+      font-size:13px;
+      font-weight:700;
+      transition: 0.3s;
+      cursor: pointer;
+      outline:none;
+    }
+    #reverse-btn{
+      position:absolute;
+      bottom: -80px;
+      height:55px;
+      width:70px;
+      left:50%;
+      display:flex;
+      background-color: rgb(21, 115, 197);
+      justify-content: center;
+      align-items: center;
+      transform: translateX(-50%);
+      border: 1px solid #ece5e5;
+      color: #e6dfdf;
+      padding:5px;
+      border-radius: 5px 5px 50% 50% ;
+      font-size:13px;
+      font-weight:700;
+      transition: 0.3s;
+      cursor: pointer;
+      outline:none;
+    }
+    #right-btn{
+      position:absolute;
+      top:calc(50% - 30px);
+      right:-85px;
+      transform: rotate(90deg);
+      height:55px;
+      width:70px;
+      display:flex;
+      background-color: rgb(21, 115, 197);
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ece5e5;
+      color: #e6dfdf;
+      padding:5px;
+      border-radius: 50% 50% 5px 5px ;
+      font-size:13px;
+      font-weight:700;
+      transition: 0.3s;
+      cursor: pointer;
+      outline:none;
+    }
+    #left-btn{
+      position:absolute;
+      top:calc(50% - 30px);
+      left:-85px;
+      /* transform: translateY(-50%); */
+      transform: rotate(-90deg);
+      height:55px;
+      width:70px;
+      display:flex;
+      background-color: rgb(21, 115, 197);
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ece5e5;
+      color: #e6dfdf;
+      padding:5px;
+      border-radius: 50% 50% 5px 5px ;
+      font-size:13px;
+      font-weight:700;
+      transition: 0.3s;
+      cursor: pointer;
+      outline:none;
+    }
+    #stop-btn{
+      /* position:absolute; */
+      top:50% ;
+      right:50%;
+      height:100%;
+      width:100%;
+      display:flex;
+      background-color: rgb(21, 115, 197);
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ece5e5;
+      color: #e6dfdf;
+      padding:5px;
+      border-radius: 50%  ;
+      font-size:13px;
+      font-weight:700;
+      transition: 0.3s;
+      cursor: pointer;
+      outline:none;
+    }
+    #stop-btn:hover, #up-btn:hover, #reverse-btn:hover, #right-btn:hover, #left-btn:hover{
+      background-color:rgb(7, 101, 183) ;
+    }
+    #stop-btn:active, #up-btn:active, #reverse-btn:active, #right-btn:active, #left-btn:active{
+      outline:none;
+      /* transform: scale(200%); */
+    }
+    @media screen and (max-width:470px){
+      .control-container{
+          height:150px;
+          width:150px;
+      }
+      #up-btn{
+        top: -65px;
+      }
+      #reverse-btn{
+        bottom: -65px;
+      }
+      #right-btn{
+        right:-75px;
+      }
+      #left-btn{
+        left:-75px;
+      }
+   }
+  </style>
+</head>
+<body>
+  <main class="main-container">
+    <h3 class="main-header">
+      <span class="header-content"> motor controller </span>
+    </h3>
+    <div class="control-container">
+     
+      <div class="control-box">
+       <div id="up-btn">
+        forward
+       </div>
+       <div id="reverse-btn">
+        reverse
+       </div>
+       <div id="right-btn">
+        right
+       </div>
+       <div  onkeypress="" id="left-btn">
+        left
+       </div>
+       <div id="stop-btn">
+        stop
+       </div>
+      </div>
+      
+    </div>
+  </main>
+  <script>
+    const front = document.getElementById("up-btn");
+    const reverse = document.getElementById("reverse-btn")
+    const right = document.getElementById("right-btn")
+    const left = document.getElementById("left-btn")
+    const stopBtn = document.getElementById("stop-btn")
+    const intervalDelay = 300;
+    // set event for forward movement of the motor
+    front.addEventListener("mousedown", frontMotion);
+    front.addEventListener("mouseup", stopFrontMotion);
+    front.addEventListener("touchstart", frontMotion);
+    front.addEventListener("touchend", stopFrontMotion);
+
+    // set event for for reverse movement of the motor
+    reverse.addEventListener("mousedown", reverseMotion);
+    reverse.addEventListener("mouseup", stopReverseMotion);
+    reverse.addEventListener("touchstart", reverseMotion);
+    reverse.addEventListener("touchend", stopReverseMotion);
+
+    // set event for forward movement of the motor
+    right.addEventListener("mousedown", rightMotion);
+    right.addEventListener("mouseup", stopRightMotion);
+    right.addEventListener("touchstart", rightMotion);
+    right.addEventListener("touchend", stopRightMotion);
+
+    // set event for forward movement of the motor
+    left.addEventListener("mousedown", leftMotion);
+    left.addEventListener("mouseup", stopLeftMotion);
+    left.addEventListener("touchstart", leftMotion);
+    left.addEventListener("touchend", stopLeftMotion);
+
+    // set event for forward movement of the motor
+    stopBtn.addEventListener("mousedown", stopMovement);
+    // stop.addEventListener("mouseup", stopFrontMovement);
+
+
+   
+    // front movement actions of motor...
+    function frontMotion(){
+      frontAction = setInterval( function(){
+        console.log("front motion");
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/front")
+        xhr.send();
+      },intervalDelay)
+    }
+    function stopFrontMotion(){
+      clearInterval(frontAction);
+      console.log("halt front motion");
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET","/halt")
+      xhr.send();
+    }
+
+    // reverse movement actions of motor
+    function reverseMotion(){
+      reverseAction = setInterval( function(){
+        console.log("reverse motion");
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/reverse")
+        xhr.send();
+      },intervalDelay)
+    }
+    function stopReverseMotion(){
+      clearInterval(reverseAction);
+      console.log("halt reverse motion");
+      const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/halt")
+        xhr.send();
+    }
+
+    // right movement actions of motor
+    function rightMotion(){
+      rightAction = setInterval(async function(){
+        console.log("right motion");
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/right");
+        xhr.send();
+      },intervalDelay)
+    }
+    function stopRightMotion(){
+      clearInterval(rightAction);
+      console.log("halt right motion");
+      const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/halt");
+        xhr.send();
+    }
+    
+    // right movement actions of motor
+    function leftMotion(){
+      leftAction = setInterval( function(){
+        console.log("left motion");
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/left");
+        xhr.send();
+      },intervalDelay)
+    }
+    function stopLeftMotion(){
+      clearInterval(leftAction);
+      console.log("halt left motion");
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/halt")
+        xhr.send();
+    }
+   
+    // right movement actions of motor
+    function stopMovement(){
+        console.log("stop movement");
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/stop")
+        xhr.send();
+    }
+  </script>
+</body>
+</html>
